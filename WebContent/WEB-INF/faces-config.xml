@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<faces-config xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd"
+	version="2.2">
+
+
+	<converter>
+		<converter-id>entityConverter</converter-id>
+		<converter-class>com.converter.EntityConverter</converter-class>
+	</converter>
+
+
+<managed-bean>
+		<managed-bean-name>personneBean</managed-bean-name>
+		<managed-bean-class>bean.PersonneBean</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+	</managed-bean>
+
+
+	<navigation-rule>
+		
+			<navigation-case>
+			<from-outcome>inscription</from-outcome>
+			<to-view-id>/gestionPersonne/inscription.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+
+	</navigation-rule>
+
+
+
+	
+</faces-config>

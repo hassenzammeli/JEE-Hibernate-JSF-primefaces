@@ -1,0 +1,124 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<link type="text/css" rel="stylesheet"
+		href="#{facesContext.externalContext.requestContextPath}/resources/css/styles.css" />
+	<script type="text/javascript">
+            //<![CDATA[
+            jQuery(function($) {
+               $(document).keydown(function(e) {
+                     var element = e.target.nodeName.toLowerCase();
+                     if (e.keyCode>=112 && e.keyCode <=123){
+                    	 return false;
+                         }
+                    	 
+                    if (e.keyCode == 8 && element != 'input' && element != 'textarea') {
+                         return false;
+                    }
+               });
+            });
+            //]]>
+</script>
+</h:head>
+
+<script type="text/javascript">
+
+
+function notoolbar(){
+ if(window.name!='nouveau'){  
+
+     var w = screen.availWidth;
+     var h = screen.availHeight;
+     //ouverture de lameme page pour affecter les parametres de fenetre
+     var windowprops = "top=0,left=0,outerHeight="+h+",outerWidth="+w+",location=no,directories = no,menubar=no,status=yes,resizable=no,width="+w+",height="+h+",scrollbars=yes,copyhistory=0,directories=0,titlebar=no,toolbar=no,hotkeys=no,dependent=no";
+     winPopUnder = window.open(window.location,"nouveau",windowprops);
+     winPopUnder.moveTo(0,0);
+     winPopUnder.focus();
+	 
+	 //fermeture de lapage mÃ¨re selon la version
+	 var strChUserAgent = navigator.userAgent;
+	 var intSplitStart = strChUserAgent.indexOf("(",0);
+	 var intSplitEnd = strChUserAgent.indexOf(")",0);
+	 var strChStart = strChUserAgent.substring(0,intSplitStart);
+	 var strChMid = strChUserAgent.substring(intSplitStart, intSplitEnd);
+	 var strChEnd = strChUserAgent.substring(strChEnd);
+ 
+
+
+	 if (typeof document.body.style.maxHeight != "undefined") {
+	 // IE 7, mozilla, safari, opera 9
+		window.open("data:text/plain,Cette fenetre a ete fermee...", "_self", null).close();
+	 } else {
+	 // IE6, et versions antÃ©rieures
+		self.opener=self;
+		self.close();
+	 }
+
+ }
+}
+ 
+        
+       
+        function dailyPopUnder(title, url, width, height) {
+		var windowprops = "hotkeys=no,directories=no,screenY=0,screenX=0,resizable=no,dependent=no,status=yes,toolbar=no,menubar=no,scrollbars=yes,location=no,titlebar=no,width=" + width + ",height=" + height;
+                
+                winPopUnder = window.open(url, 'popunder', windowprops);
+		//	winPopUnder.blur();
+		 winPopUnder.moveTo(0,0);
+                 winPopUnder.focus();
+	//       window.close();
+	}
+
+
+    function desactiverTouche(event) { 
+         event.keyCode = 0; 
+         event.cancelBubble; 
+         event.returnValue = false; 
+    }
+
+
+
+   
+
+
+</script>
+
+
+<h:form>
+	<p:remoteCommand name="remoter"
+		actionListener="#{loginCtr.deconnecter}" />
+</h:form>
+<h:body onload="notoolbar();">
+
+	<div id="main">
+		<div id="header">
+			<ui:insert name="header">
+<!-- 				<ui:include src="header.xhtml"></ui:include> -->
+			</ui:insert>
+		</div>
+		<div id="title">
+			<ui:insert name="title">
+			</ui:insert>
+		</div>
+
+		<div id="content">
+			<div id="content-left">
+				<ui:insert name="contentLeft">
+<!-- 					<ui:include src="menu.xhtml"></ui:include> -->
+				</ui:insert>
+			</div>
+			<div id="content-center">
+				<ui:insert name="contentCenter" />
+			</div>
+		</div>
+		<div id="footer">
+			<ui:insert name="footer">
+<!-- 				<ui:include src="footer.xhtml"></ui:include> -->
+			</ui:insert>
+		</div>
+	</div>
+</h:body>
+</html>

@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Page d'inscription</title>
+    </h:head>
+    <h:body>
+        <h:form>
+            <p:fieldset legend="Inscription">
+                <p:panelGrid columns="2" >
+                    <p:outputLabel value="Nom"/>
+                    <p:inputText value="#{personneBean.personne.nom}" />
+                    <p:outputLabel value="Prénom"/>
+                    <p:inputText value="#{personneBean.personne.prenom}" />
+                    <p:outputLabel value="Date Naissance"/>
+                    <p:calendar  pattern="dd/MM/yyyy" value="#{personneBean.personne.dateNaissance}"/>
+                    <p:outputLabel value="Ville"/>
+                    <p:selectOneMenu value="#{personneBean.personne.ville}">
+                        <f:selectItem itemLabel="Marrakech" itemValue="Marrakech"/>
+                        <f:selectItem itemLabel="Casa" itemValue="Casa"/>
+                        <f:selectItem itemLabel="Fes" itemValue="Fes"/>
+                        <f:selectItem itemLabel="Rabat" itemValue="Rabat"/>
+                    </p:selectOneMenu>
+                    <p:outputLabel value="Loisir"/>
+                    <p:selectManyCheckbox value="#{personneBean.los}">
+                        <f:selectItem itemLabel="Lecture" itemValue="Lecture"/>
+                        <f:selectItem itemLabel="Music" itemValue="Music"/>
+                        <f:selectItem itemLabel="Voyage" itemValue="Voyage"/>
+                        <f:selectItem itemLabel="Sport" itemValue="Sport"/>
+                    </p:selectManyCheckbox>
+                    <p:outputLabel value="Sexe"/>
+                    <p:selectOneRadio value="#{personneBean.personne.sexe}">
+                        <f:selectItem itemLabel="Femme" itemValue="Femme"/>
+                        <f:selectItem itemLabel="Homme" itemValue="Homme"/>
+
+                    </p:selectOneRadio>
+                    <p:commandButton value="Valider" action="#{personneBean.onCreate()}"/>
+                    <p:commandButton value="Annuler" type="reset"/>
+                </p:panelGrid>
+            </p:fieldset>
+        </h:form>
+    </h:body>
+</html>

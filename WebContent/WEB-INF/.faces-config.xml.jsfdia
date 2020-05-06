@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PROCESS model-entity="JSFProcess">
+ <PROCESS-ITEM NAME="rules:" SHAPE="32,17,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules::0" NAME="item" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="inscription::#gestionPersonne#inscription.xhtml" NAME="output1"
+    PATH="/gestionPersonne/inscription.xhtml"
+    TARGET="rules:#gestionPersonne#inscription.xhtml"
+    TITLE="inscription" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#gestionPersonne#inscription.xhtml"
+  PATH="/gestionPersonne/inscription.xhtml" SHAPE="304,337,0,0" model-entity="JSFProcessGroup"/>
+</PROCESS>
